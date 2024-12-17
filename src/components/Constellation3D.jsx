@@ -233,7 +233,7 @@ export default function Constellation3D() {
           />
           
           {/* Scrollable subsections container */}
-          <div className="constellation-scroll-container relative h-screen overflow-y-auto snap-y snap-mandatory">
+          <div className="constellation-scroll-container no-scrollbar relative h-screen overflow-y-auto snap-y snap-mandatory">
             {[
               { title: "Stellar Birth", desc: "Witness the formation of new stars" },
               { title: "Cosmic Dance", desc: "Experience the orbital harmony" },
