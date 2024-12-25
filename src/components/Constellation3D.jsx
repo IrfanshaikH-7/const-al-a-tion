@@ -4,6 +4,9 @@ import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { motion } from 'framer-motion';
+import { ShootingStars } from './ui/shooting-starts';
+import { StarsBackground } from './ui/starts-background';
+import { div } from 'framer-motion/client';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -98,7 +101,8 @@ export default function Constellation3D() {
     const geometry = new THREE.BufferGeometry();
     const material = new THREE.PointsMaterial({
       color: 0xffffff,
-      size: 0.05,
+      size: 0.02,
+      
     });
 
     geometryRef.current = geometry;
@@ -212,16 +216,16 @@ export default function Constellation3D() {
 
   return (
     <div className="relative snap-y snap-mandatory h-screen overflow-y-auto">
-      {/* First Section */}
+       {/*Hero */}
       <section className="h-screen flex items-center justify-center bg-black snap-start snap-always">
-        <motion.h1 
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1 }}
-          className="text-4xl font-bold text-white"
-        >
-          Welcome to the Constellation
-        </motion.h1>
+       /<div className="h-full rounded-md  flex flex-col items-center justify-center relative w-full">
+       <h2 className="relative flex-col pr-20  w-fit mx-auto text-center tracking-tight font-medium bg-clip-text text-transparent bg-gradient-to-b from-red-800 via-red-500 to-red-300 flex items-center gap-2 md:gap-8">
+        <span className='text-8xl font-bold'>TEDx</span>
+        <span className='text-6xl font-bold -mt-12 pl-48 text-neutral-50'>IPSA, INDORE</span>
+      </h2>
+      <ShootingStars />
+      <StarsBackground />
+       </div>
       </section>
 
       {/* Constellation Section with Subsections */}
@@ -245,14 +249,74 @@ export default function Constellation3D() {
                 className="constellation-subsection h-screen snap-start snap-always flex items-center justify-center"
               >
                 <motion.div 
-                  className="text-white text-center max-w-md p-6 bg-black/50 rounded-lg backdrop-blur-sm"
+                  className="text-white text-center max-w-md p-6  rounded-lg "
                   initial={{ opacity: 0 }}
                   whileInView={{ opacity: 1 }}
                   transition={{ duration: 0.8 }}
                   viewport={{ once: false }}
                 >
-                  <h2 className="text-2xl font-bold mb-4">{section.title}</h2>
-                  <p>{section.desc}</p>
+                  {
+                    index === 0 && (
+                      <div className='flex flex-col items-center w-full justify-center relative'>
+                        <div className='absolute top-5 -right-96 rounded-3xl bg-black/0 backdrop-blur-[2px] border border-neutral-800 p-4  aspect-video h-36'>
+                        something
+                        </div>
+                        <div className=' rounded-3xl mt-40 mr-52 bg-black/0 backdrop-blur-[2px] border border-neutral-800 p-4 aspect-[21/9] h-96'>
+                        <h2 className="text-2xl font-bold mb-4">{section.title}</h2>
+                        <p>{section.desc}</p>
+
+                        </div>
+                       
+                      </div>
+                    )
+                   
+                  }
+                  {
+                    index === 1 && (
+                      <div className='flex flex-col items-center w-full justify-center relative'>
+                        <div className='absolute top-5 -left-96 rounded-3xl bg-black/0 backdrop-blur-[2px] border border-neutral-800 p-4  aspect-video h-36'>
+                        something
+                        </div>
+                        <div className=' rounded-3xl mt-40 ml-52 bg-black/0 backdrop-blur-[2px] border border-neutral-800 p-4 aspect-[21/9] h-96'>
+                        <h2 className="text-2xl font-bold mb-4">{section.title}</h2>
+                        <p>{section.desc}</p>
+
+                        </div>
+                       
+                      </div>
+                    )
+                  }
+                  {
+                    index === 2 && (
+                      <div className='flex flex-col items-center w-full justify-center relative'>
+                        <div className='absolute top-5 -right-96 rounded-3xl bg-black/0 backdrop-blur-[2px] border border-neutral-800 p-4  aspect-video h-36'>
+                        something
+                        </div>
+                        <div className=' rounded-3xl mr-52 mt-40 bg-black/0 backdrop-blur-[2px] border border-neutral-800 p-4 aspect-[21/9] h-96'>
+                        <h2 className="text-2xl font-bold mb-4">{section.title}</h2>
+                        <p>{section.desc}</p>
+
+                        </div>
+                       
+                      </div>
+                    )
+                  }
+                  {
+                    index === 3 && (
+                      <div className='flex flex-col items-center w-full justify-center relative'>
+                      <div className='absolute top-5 -left-96 rounded-3xl bg-black/0 backdrop-blur-[2px] border border-neutral-800 p-4  aspect-video h-36'>
+                      something
+                      </div>
+                      <div className=' rounded-3xl ml-52 mt-40 bg-black/0 backdrop-blur-[2px] border border-neutral-800 p-4 aspect-[21/9] h-96'>
+                      <h2 className="text-2xl font-bold mb-4">{section.title}</h2>
+                      <p>{section.desc}</p>
+
+                      </div>
+                     
+                    </div>
+                    )
+                  }
+                  
                 </motion.div>
               </div>
             ))}
